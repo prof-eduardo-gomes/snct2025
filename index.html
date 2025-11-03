@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostra Científica - 22ª SNCT</title>
+    <!-- Carrega o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carrega a fonte Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Define a fonte Inter como padrão */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Cor de fundo personalizada para o placeholder do vídeo */
+        .video-placeholder {
+            background-color: #334155; /* slate-700 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto max-w-7xl p-4 sm:p-8">
+        
+        <!-- Cabeçalho com a Identidade Visual -->
+        <header class="mb-10">
+            <img src="banner.png" alt="Banner da 22ª Semana Nacional de Ciência e Tecnologia" class="w-full h-auto object-cover rounded-lg shadow-lg">
+            <h1 class="text-4xl font-bold text-center text-gray-800 mt-6">
+                Mostra Científica - 22ª Semana Nacional de Ciência e Tecnologia
+            </h1>
+            <h2 class="text-2xl text-center text-gray-600 mt-2">
+                IFSC Câmpus Canoinhas
+            </h2>
+        </header>
+
+        <!-- Container onde as sessões serão renderizadas -->
+        <main id="sessions-container" class="space-y-12">
+            <!-- O conteúdo será gerado pelo JavaScript -->
+        </main>
+        
+        <footer class="text-center text-gray-500 mt-12 py-6 border-t border-gray-300">
+            IFSC Câmpus Canoinhas - SNCT 2024
+        </footer>
+    </div>
+
+    <script>
+        // Dados extraídos do PDF
+        const sessionsData = [
+          {
+            "sessionTitle": "Sessão 1 - 05/11 - manhã (08h às 12h)",
+            "commentators": "Comentadores: Cleoci Beninca, Fabio Francisco Pinto e Cleiton Arendartchuk",
+            "presentations": [
+              { "id": "1", "title": "FATORES ASSOCIADOS À ADESÃO DOS ESTUDANTES DO IFSC/CANOINHAS À ALIMENTAÇÃO OFERECIDA PELO PNAE.", "authors": "Jaine Aparecida Wardenski, Yasmim Alves Martins, Álvaro Luiz Miranda Piermatei, Juliana Cristina Furda de Lima, Virginea Aparecida de Lorena, Luiz Paulo de Lima", "videoUrl": "https://youtu.be/D7PjDgQzU3k" },
+              { "id": "2", "title": "REPRESENTATIVIDADE DO CUSTO DA CESTA BÁSICA DE ALIMENTOS, EM CANOINHAS-SC", "authors": "Arthur de Oliveira Batista, Maria Eduarda Chagas Fallgatter, Jeff erson Treml, Luiz Paulo de Lima", "videoUrl": "https://youtu.be/rmtzJtvGLPw" },
+              { "id": "3", "title": "INVESTIGAÇÃO NA MELHORIA DE SINTOMAS GASTROINTESTINAIS E REDUÇÃO DOS PROCESSOS INFLAMATÓRIOS ASSOCIADOS À SUBSTITUIÇÃO DO CONSUMO DA PANIFICAÇÃO CONVENCIONAL PELA PANIFICAÇÃO DE FERMENTAÇÃO NATURAL", "authors": "Natiéli Piovesan, Fabiana Kalyne Ludka, Sandra Aparecida Tavares, Thalita Jarschel Arroyo, Carla Vanessa Cauduro, Leticia Rodrigues de Souza", "videoUrl": "https://youtu.be/hAZKlMl8gyU" },
+              { "id": "4", "title": "CONTROLE BIOLÓGICO DE CARRAPATOS COM NEMATOIDE ENTOMOPATOGÊNICO", "authors": "Andéra Neves, Luisa Koene Conchinski, João Paulo Pereira Paes, Eduardo Henrique Goulin, Cicero Venâncio Nunes Junior", "videoUrl": "https://youtu.be/5xU_a-6AbCk" },
+              { "id": "5", "title": "KOMBUCHA: EVIDÊNCIAS CIENTÍFICAS E EXPERIÊNCIAS EM INSTITUTOS FEDERAIS DO BRASIL RELATO DE EXPERIÊNCIA DA FEIRA DE CIÊNCIAS DO IFSC CANOINHAS", "authors": "Ana Paula Neves da Silveira, Henrique Lourenço Padilha, Joice Paula Wolff, Pedro Vinicius Sampaio, Winicius Albert Waldmann", "videoUrl": null },
+              { "id": "6", "title": "INFLUÊNCIA DE REGULADOR DE CRESCIMENTO ΝΑ EMERGÊNCIA E VIGOR DE PLÂNTULAS DE TRIGO MOURISCO", "authors": "Tainá Aparecida Nogath, Thais Guis Passos, Gesieli Priscila Buba, Lais Fernanda Melo Pereira", "videoUrl": "https://youtu.be/C6KcBfgaHDk" },
+              { "id": "7", "title": "PRÁTICAS DE ANAMORFOSE COMO EXERCÍCIO INTERDISCIPLINAR", "authors": "Aryane Spadotto, Daiane Caroline Wagner, Cinthia Wambier Adimari, Cassiano da Silva, Manassés Carlos Taques", "videoUrl": "https://youtu.be/f7x3BXwPHEY" },
+              { "id": "8", "title": "CICLO DE OFICINAS COMO PROPOSTA DE AÇÃO EDUCATIVA EM EFICIÊNCIA ENERGÉTICA", "authors": "Roberta Costa Ribeiro da Silva, Anna Lívia Pires de Oliveira", "videoUrl": "https://youtu.be/LVdAq8kviTg" },
+              { "id": "9", "title": "APRENDIZAGEM MEDIADA POR OBRAS: VIVÊNCIA NO LABORATÓRIO DE SOLOS", "authors": "Bruno Gabriel Ludka Mota, Camila Wagner Tartari, Cassiano da Silva, Edson Xavier Leite Júnior, Gabriel Moraes De Bem, Gabrieli Rudnik, Lais Becker Ferreira, Roberta Costa Ribeiro da Silva, Virginia Aparecida de Lorena", "videoUrl": "https://youtu.be/LKcKhHEtcVg" },
+              { "id": "10", "title": "SANEAMENTO ECOLÓGICO: BANHEIRO SECO E TELHADO VERDE COM CAPTAÇÃO DE ÁGUA DA CHUVA, COMO PROPOSTA DE APLICAÇÃO DE CONCEITOS ÉTICOS E DE PLANEJAMENTO DA PERMACULTURA NA CONSTRUÇÃO CIVIL", "authors": "Aryane Spadotto, Cinthia Wambier Adimari, Gabriel Moraes De Bem, Manassés Carlos Taques, Roberta Costa Ribeiro da Silva", "videoUrl": "https://youtu.be/tbQ510xzECA" },
+              { "id": "11", "title": "USO DE MÍDIAS E TECNOLOGIAS PARA FACILITAR O ENTENDIMENTO DO SOFTWARE AUTOCAD", "authors": "Aryane Spadotto, Heloisa Adimari Zanini, Matheus Marinho", "videoUrl": "https://youtu.be/frbZHC1ilfk" }
+            ]
+          },
+          {
+            "sessionTitle": "Sessão 2 - 05/11 - manhã (08h às 12h)",
+            "commentators": "Comentadores: João Paulo Pereira Paes, Roberta Cristiane Ribeira",
+            "presentations": [
+              { "id": "1", "title": "RELAÇÃO DA CONCENTRAÇÃO DE CAROTENOIDES FOLIARES COM CAFEINA E EXTRATO ETÉREO EM ERVA-MATE", "authors": "Murilo Girolimetto Kohler, Vilmara Aparecida Santos da Costa, Josieli de Oliveira dos Santos Veiga, Luiz Alberto Silva Stefanski, Franciele Pozzebon Pivetta, Eliziane Luiza Benedetti", "videoUrl": "https://youtu.be/CZF-VFZlRtY" },
+              { "id": "2", "title": "QUALIDADE FISIOLÓGICA DE SEMENTES DE TRÊS CULTIVARES DE SOJA.", "authors": "Adrian Sigolin Moreira, Eduardo Antonovicz, Carolina Glinski Fiorin, Lais Fernanda Melo Pereira", "videoUrl": "https://youtu.be/XboKaySuUpI" },
+              { "id": "3", "title": "DESEMPENHO FISIOLÓGICO DE DIFERENTES CULTIVARES COMERCIAIS DE SOJA", "authors": "Eduardo Antonovicz, Adrian Sigolin Moreira, Carolina Glinski Fiorin, Laís Fernanda Melo Pereira", "videoUrl": "https://youtu.be/qj9lGRFW-tQ" },
+              { "id": "4", "title": "FLUXO DE GASES DO Efeito ESTUFA EM CULTIVO DE ERVA-MATE COM ADUBAÇÃO ORGÂNICA", "authors": "José Carlos Romanchuk, Murilo Girolimetto Kohler, Vilmara Aparecida Santos da Costa, Viviane Bobrovicz, Rodrigo Zientara, Josileia Acordi Zanatta, Eliziane Luiza Benedetti", "videoUrl": "https://youtu.be/QQ6s6X3b1Hg" }, 
+              { "id": "5", "title": "EFICIÊNCIA DO TENÉBRIO MOLITOR NA DEGRADAÇÃO DO COURO SOB DIFERENTES TRATAMENTOS ALIMENTARES", "authors": "Ana Júlia Alves Machado, Juliana Camargos de Freitas, Emilly Karine Silva da Silva, João Paulo Pereira Pães, Andressa Antunes Bortoti, Cicero Venâncio Nunes Junior", "videoUrl": "https://youtu.be/5XtCq3mB6Vg" },
+              { "id": "6", "title": "EFICÁCIA DE NANOPARTÍCULAS DE TITANIO NA PROTEÇÃO DA BEAUVERIA BASSIANA CONTRA RAIOS UV", "authors": "Bruno Eduardo Guimarães, Juliana Camargos de Freitas, Luisa Koene Konchinski, Andéra Neves, João Paulo Pereira Paes, Cícero Venâncio Nunes Junior", "videoUrl": "https://youtu.be/WtHTlrmLfI8" },
+              { "id": "7", "title": "INFLUÊNCIA DA GRANULOMETRIA DO POLIESTIRENO EXPANDIDO NA BIODEGRADAÇÃO POR LARVAS DE TENÉBRIO MOLITOR.", "authors": "Juliana Camargos de Freitas", "videoUrl": "https://youtu.be/kLzu8ieostE" },
+              { "id": "8", "title": "MORTALIDADE DE TENEBRIO MOLITOR COMO INDICADOR DE EFICIÊNCIA NA DEGRADAÇÃO DE POLIESTIRENO EXPANDIDO (EPS)", "authors": "Emilly Karine S. da Silva, Juliana Camargos De Freitas, Ana Júlia Alves Machado, Andressa Antunes Bortoti, Cícero Venâncio Nunes Júnior, João Paulo Pereira Paes", "videoUrl": "https://youtu.be/xhffzsZve3g" },
+              { "id": "9", "title": "QUALIDADE DA HASTE DE CULTIVARES DE HELIANTHUS ANNUUS PRODUZIDA EM DIFERENTES ÉPOCAS NO PLANALTO NORTE CATARINENSE", "authors": "Júlia Aimê Dybas, Vilmara Aparecida Santos da Costa, Danieli Aparecida Kaminski Zientara, Viviane Bobrovicz, Gabriele Wawrzyniak, Eliziane Luiza Benedetti", "videoUrl": "https://youtu.be/CmsR1cU9JJM" },
+              { "id": "10", "title": "INFLUÊNCIA DOS NÍVEIS DE SOMBREAMENTO E DO MATERIAL GENÉTICO NA CONCENTRAÇÃO DE CAROTENOIDES EM FOLHAS DE ERVA-MATE.", "authors": "Vilmara Aparecida Santos da Costa, José Carlos Romanchuk, Murilo Girolimetto Kohler, Franciele Pozzebon Pivetta, Luiz Alberto Silva Stefanski, Eliziane Luiza Benedetti", "videoUrl": "https://youtu.be/b365J-Nh8C4" }
+            ]
+          },
+          {
+            "sessionTitle": "Sessão 3 - 05/11 - tarde (13h15 às 17h15)",
+            "commentators": "Comentadores: Carolina de Castro e Santos, Douglas André Würz",
+            "presentations": [
+              { "id": "1", "title": "CURVA DE EMBEBIÇÃO E GERMINAÇÃO DE SEMENTES DE SOJA SUBMETIDAS AO ENVELHECIMENTO ACELERADO", "authors": "Maria Eduarda de Lima, Mayara Oczkovski, Suzana Figura Reis, Gesieli Priscila Buba Roskamp, Lais Fernanda Melo Pereira", "videoUrl": "https://youtu.be/K7PI-_BEvUA" },
+              { "id": "2", "title": "INFLUÊNCIA DO COMPORTAMENTO DE SPODOPTERA FRUGIPERDA NO DESENVOLVIMENTO E ATRAÇÃO DE ARMADILHAS", "authors": "Luis Felipe Lech, Andera Neves, Cícero Venâncio Nunes, Eduardo Henrique Goulin, Rodrigo Guesser, João Paulo Pereira Paes", "videoUrl": null },
+              { "id": "3", "title": "COMPARAÇÃO DO POTENCIAL GERMINATIVO DE DIFERENTES CULTIVARES DE SOJA", "authors": "Diego Folmer, Suzana Figura Reis, Adrian Sigolin Moreira, Eduardo Antonovicz, Carolina Glinski Fiorin, Lais Fernanda Melo Pereira", "videoUrl": "https://youtu.be/ztpizU0vBYw" },
+              { "id": "4", "title": "APLICAÇÃO DE DOSES CRESCENTES DE STIMULATE® EM FAGOPYRUM ESCULENTUM", "authors": "Thais Guis Passos, Tainá Aparecida Nogath, Gesieli Priscila Buba, Lais Fernanda Melo Pereira", "videoUrl": "https://youtu.be/dwieTRTIJEU" },
+              { "id": "5", "title": "EDUCAÇÃO E CONSCIENTIZAÇÃO DOS SOLOS ATRAVÉS DE OFICINA TÉCNICA", "authors": "Andressa Munhoz, Carla Cristina Wawrzyniak, Leticia Kachimareck, Victor Matheus Noernberg, Gustavo Kenji Matsuzawa, Jefferson Schick", "videoUrl": "https://youtu.be/LoJ-xNza1rM" },
+              { "id": "6", "title": "DISTRIBUIÇÃO ESPACIAL DA NECESSIDADE DE CALCÁRIO DOS SOLOS DO MUNICÍPIO DE CANOINHAS - SC", "authors": "Andressa Munhoz, Carla Cristina Wawrzyniak, Victor Matheus Noernberg, Gustavo Kenji Matsuzawa, Jefferson Schick", "videoUrl": "https://youtu.be/D3DQwubYn-c" },
+              { "id": "7", "title": "AVALIAÇÃO DA RESISTÊNCIA DO SOLO SOB USO DE PLANTAS DE COBERTURA E SUBSOLAGEM", "authors": "Gustavo Kenji Matsuzawa, Victor Matheus Noernberg, Carla Cristina Wawrzyniak, Andressa Munhoz, Jefferson Schick", "videoUrl": "https://youtu.be/MBfjcxLKTmw" },
+              { "id": "8", "title": "EFEITO DAS PLANTAS DE COBERTURA E DA SUBSOLAGEM NA ESTRUTURA DO SOLO", "authors": "Gustavo Kenji Matsuzawa, Victor Matheus Noernberg, Carla Cristina Wawrzyniak, Andressa Munhoz, Jeff erson Schick", "videoUrl": "https://youtu.be/qbyHCBrQyBw" },
+              { "id": "9", "title": "VIABILIDADE DA MUFLA NA DETERMINAÇÃO DA MATÉRIA ORGÂNICA DO SOLO", "authors": "Carla Cristina Wawrzyniak, Andressa Munhoz, Victor Matheus Noernberg, Gustavo Kenji Matsuzawa, Jefferson Schick", "videoUrl": "https://youtu.be/vrd25mD8oY0" },
+              { "id": "10", "title": "EMERGÊNCIA DA SOJA EM DIFERENTES DENSIDADES DO SOLO.", "authors": "Victor Matheus Noernberg, Gustavo Kenji Matsuzawa, Carla Cristina Wawrzyniak, Andressa Munhoz, Jefferson Schick", "videoUrl": "https://youtu.be/RfP1HnTuRFA" }
+            ]
+          },
+          {
+            "sessionTitle": "Sessão 4 - 05/11 - tarde (13h15 às 17h15)",
+            "commentators": "Comentador: Moisés Souza",
+            "presentations": [
+              { "id": "1", "title": "PLATAFORMA INTERATIVA DE SUPORTE AO ENSINO DE PROGRAMAÇÃO PARA INTERNET UTILIZANDO INTELIGÊNCIA ARTIFICIAL", "authors": "Eduardo Luis Gomes, Carlos Rafael Guerber, Mauricio Begnini, Luciano Barreto", "videoUrl": "https://youtu.be/pSYYOlRwU4o" },
+              { "id": "2", "title": "ATUALIZAÇÃO E INOVAÇÃO NO ENSINO TÉCNICO: INTEGRANDO HARDWARE E METODOLOGIAS PARA POTENCIALIZAR A FORMAÇÃO NO CURSO DE MANUTENÇÃO E SUPORTE EM INFORMÁTICA", "authors": "Glaucio Luis Wachinski", "videoUrl": "https://youtu.be/JaSJ_lIC1MI" },
+              { "id": "3", "title": "IMPLANTAÇÃO DE ESTÚDIO DE GRAVAÇÃO E EDIÇÃO DE VIDEOAULAS PARA POTENCIALIZAR A QUALIDADE E EFICIÊNCIA DO ENSINO À DISTÂNCIA NO CÂMPUS CANOINHAS", "authors": "Eduardo Luis Gomes", "videoUrl": "https://youtu.be/z_9w50aaHpo" },
+              { "id": "4", "title": "ROBÓTICA E APRENDIZAGEM BASEADA EM PROBLEMAS PARA ENSINO DE INTELIGÊNCIA ARTIFICIAL NO CURSO SUPERIOR DE TECNOLOGIA EM ANÁLISE E DESENVOLVIMENTO DE SISTEMAS (ADS)", "authors": "Eduardo Luis Gomes", "videoUrl": "https://youtu.be/e8ddw9FnkLc" },
+              { "id": "5", "title": "DESCARTE CONSCIENTE DE LIXO ELETRÔNICO", "authors": "Glaucio Luis Wachinski", "videoUrl": "https://youtu.be/Ypws_TIunCs" }
+            ]
+          }
+        ];
+
+        /**
+         * Converte uma URL do YouTube (youtu.be ou youtube.com/watch) 
+         * em uma URL de incorporação (embed).
+         * Também limpa possíveis erros de digitação do PDF (espaços, |).
+         */
+        function getYoutubeEmbedUrl(url) {
+            if (!url || url === "NÃO ENCONTRADO") return null;
+
+            let videoId;
+            try {
+                // Remove espaços e caracteres inválidos
+                const cleanUrl = url.replace(/\s/g, '').replace('|', '');
+
+                if (cleanUrl.includes('youtu.be/')) {
+                    videoId = new URL(cleanUrl).pathname.substring(1);
+                } else if (cleanUrl.includes('youtube.com/watch')) {
+                    videoId = new URL(cleanUrl).searchParams.get('v');
+                } else {
+                    // Fallback para caso seja apenas o ID ou um link mal formado
+                    const parts = cleanUrl.split('/');
+                    videoId = parts[parts.length - 1];
+                }
+                
+                return `https://www.youtube.com/embed/${videoId}`;
+            } catch (e) {
+                console.error('URL do YouTube inválida:', url, e);
+                return null;
+            }
+        }
+
+        /**
+         * Renderiza todo o conteúdo da página.
+         */
+        function renderContent() {
+            const container = document.getElementById('sessions-container');
+            if (!container) return;
+
+            sessionsData.forEach(session => {
+                // 1. Cria o wrapper da Seção
+                const sessionSection = document.createElement('section');
+                sessionSection.className = "bg-white p-6 sm:p-8 rounded-2xl shadow-lg";
+
+                // 2. Cria o Título da Seção e Comentadores
+                const sessionHeader = document.createElement('div');
+                sessionHeader.className = "pb-6 mb-6 border-b border-gray-200";
+                sessionHeader.innerHTML = `
+                    <h2 class="text-3xl font-bold text-blue-800 mb-2">${session.sessionTitle}</h2>
+                    <p class="text-lg text-gray-600">${session.commentators}</p>
+                `;
+                sessionSection.appendChild(sessionHeader);
+
+                // 3. Cria o grid para as apresentações
+                const presentationsGrid = document.createElement('div');
+                presentationsGrid.className = "grid grid-cols-1 md:grid-cols-2 gap-8";
+                
+                // 4. Itera sobre cada apresentação e cria o card
+                session.presentations.forEach(pres => {
+                    const embedUrl = getYoutubeEmbedUrl(pres.videoUrl);
+
+                    let videoPlayerHtml;
+                    if (embedUrl) {
+                        // Se tem vídeo, cria o iframe
+                        videoPlayerHtml = `
+                            <div class="aspect-video w-full">
+                                <iframe class="w-full h-full" src="${embedUrl}" 
+                                        title="YouTube video player" frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
+                        `;
+                    } else {
+                        // Se não tem vídeo, cria um placeholder
+                        videoPlayerHtml = `
+                            <div class="aspect-video w-full video-placeholder flex items-center justify-center rounded-t-lg">
+                                <p class="text-white text-lg font-medium">Vídeo Não Disponível</p>
+                            </div>
+                        `;
+                    }
+
+                    // Cria o card da apresentação
+                    const presentationArticle = document.createElement('article');
+                    presentationArticle.className = "flex flex-col bg-gray-50 border border-gray-200 rounded-lg overflow-hidden shadow-md transition-shadow duration-300 hover:shadow-xl";
+                    
+                    // Define o HTML do card
+                    presentationArticle.innerHTML = `
+                        <!-- Área do Vídeo -->
+                        ${videoPlayerHtml}
+                        
+                        <!-- Área de Conteúdo (Título e Autores) -->
+                        <div class="p-5 flex flex-col flex-grow">
+                            <!-- Título (no topo) -->
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3 flex-grow">
+                                <span class="inline-flex items-center justify-center w-8 h-8 mr-3 bg-blue-700 text-white font-bold rounded-full flex-shrink-0">
+                                    ${pres.id}
+                                </span>
+                                ${pres.title}
+                            </h3>
+                            
+                            <!-- Autores (na base) -->
+                            <p class="text-sm text-gray-600 mt-4 pt-4 border-t border-gray-200">
+                                <span class="font-medium text-gray-800">Autores:</span> ${pres.authors}
+                            </p>
+                        </div>
+                    `;
+                    
+                    presentationsGrid.appendChild(presentationArticle);
+                });
+
+                sessionSection.appendChild(presentationsGrid);
+                container.appendChild(sessionSection);
+            });
+        }
+
+        // Renderiza o conteúdo quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', renderContent);
+
+    </script>
+</body>
+</html>
